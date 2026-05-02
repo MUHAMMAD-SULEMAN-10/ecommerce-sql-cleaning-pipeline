@@ -50,46 +50,60 @@ ecommerce-sql-cleaning-pipeline/
 
 RAW DATA
 │
+
 ▼
 ┌─────────────────────────────┐
-│ BRONZE LAYER                │
+│ BRONZE LAYER      
+│
 │ Raw source table            │
 └─────────────────────────────┘
 │
 ▼
 ┌─────────────────────────────┐
-│ SILVER — Parsed Layer       │
-│ • Multi-format date parsing │
-│ • Safe type conversions     │
+│ SILVER — Parsed Layer 
+│
+│ • Multi-format date parsing 
+│
+│ • Safe type conversions   
+│
 │ • String standardisation    │
 └─────────────────────────────┘
 │
 ▼
 ┌─────────────────────────────┐
-│ SILVER — Normalised Layer   │
-│ • Typo correction           │
-│ • Segment standardisation   │
+│ SILVER — Normalised Layer 
+│
+│ • Typo correction   
+│
+│ • Segment standardisation
+│
 │ • Return flag validation    │
 └─────────────────────────────┘
 │
 ▼
 ┌─────────────────────────────┐
-│ SILVER — Filtered Layer     │
-│ • Business rule checks      │
+│ SILVER — Filtered Layer
+│
+│ • Business rule checks 
+│
 │ • Invalid row removal       │
 └─────────────────────────────┘
 │
 ▼
 ┌─────────────────────────────┐
-│ GOLD LAYER                  │
-│ • Cleaned dataset           │
-│ • Deduplicated records      │
+│ GOLD LAYER          
+│
+│ • Cleaned dataset  
+│
+│ • Deduplicated records   
+│
 │ • KPI-ready data            │
 └─────────────────────────────┘
 │
 ▼
 ┌─────────────────────────────┐
-│ KPI LAYER                   │
+│ KPI LAYER     
+│
 │ Final KPI reporting table   │
 └─────────────────────────────┘
 
