@@ -28,85 +28,61 @@ transactional data into a validated **single source of truth** and generates
 ---
 
 ## 📁 Repository Structure
+## 🏗️ Pipeline Architecture
 
-ecommerce-sql-cleaning-pipeline/
-│
-├── sql/
-│   ├── data_cleaning_pipeline.sql
-│   └── kpi_calculations.sql
-│
-├── data/
-│   └── ecommerce_raw_data.csv
-│
-├── assets/
-│   └── screenshots/
-│
-├── data_dictionary.md
-└── README.md
+```text
+┌─────────────────────────────┐
+│         RAW DATA            │
+│  Legacy E-Commerce Dataset  │
+└─────────────────────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│       BRONZE LAYER          │
+│  Raw Source Table Storage   │
+└─────────────────────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│   SILVER — PARSED LAYER     │
+│ • Multi-format date parsing │
+│ • Safe type conversion      │
+│ • String cleaning           │
+└─────────────────────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│ SILVER — NORMALISED LAYER   │
+│ • Typo correction           │
+│ • Segment standardisation   │
+│ • Return flag validation    │
+└─────────────────────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│  SILVER — FILTERED LAYER    │
+│ • Business rule checks      │
+│ • Invalid row removal       │
+└─────────────────────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│         GOLD LAYER          │
+│ • Cleaned dataset           │
+│ • Deduplicated records      │
+│ • KPI-ready analytics data  │
+└─────────────────────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│         KPI LAYER           │
+│  Final KPI Reporting Table  │
+└─────────────────────────────┘
+```
 
 ---
 
-## 🏗️ Pipeline Architecture
-
-RAW DATA
-│
-
-▼
-┌─────────────────────────────┐
-│ BRONZE LAYER      
-│
-│ Raw source table            │
-└─────────────────────────────┘
-│
-▼
-┌─────────────────────────────┐
-│ SILVER — Parsed Layer 
-│
-│ • Multi-format date parsing 
-│
-│ • Safe type conversions   
-│
-│ • String standardisation    │
-└─────────────────────────────┘
-│
-▼
-┌─────────────────────────────┐
-│ SILVER — Normalised Layer 
-│
-│ • Typo correction   
-│
-│ • Segment standardisation
-│
-│ • Return flag validation    │
-└─────────────────────────────┘
-│
-▼
-┌─────────────────────────────┐
-│ SILVER — Filtered Layer
-│
-│ • Business rule checks 
-│
-│ • Invalid row removal       │
-└─────────────────────────────┘
-│
-▼
-┌─────────────────────────────┐
-│ GOLD LAYER          
-│
-│ • Cleaned dataset  
-│
-│ • Deduplicated records   
-│
-│ • KPI-ready data            │
-└─────────────────────────────┘
-│
-▼
-┌─────────────────────────────┐
-│ KPI LAYER     
-│
-│ Final KPI reporting table   │
-└─────────────────────────────┘
-
+## 📊 Business KPIs Delivered
 ---
 
 ## 📊 Business KPIs Delivered
