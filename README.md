@@ -27,7 +27,7 @@ transactional data into a validated **single source of truth** and generates
 
 ---
 
-## 📁 Repository Structure
+
 ## 🏗️ Pipeline Architecture
 
 ```text
