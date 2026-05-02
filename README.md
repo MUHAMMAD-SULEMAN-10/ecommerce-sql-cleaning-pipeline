@@ -192,12 +192,6 @@ Data Analyst | SQL | Data Cleaning | Analytics Engineering
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
 > *“Effective data cleaning is not about removing rows —
 > it is about making every transformation measurable,
 > traceable, and reliable.”*
